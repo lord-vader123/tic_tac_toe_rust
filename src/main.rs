@@ -1,5 +1,11 @@
+use board::Board;
+use render::draw;
+
 mod board;
+mod render;
 
 fn main() {
-    println!("Hello, world!");
+    let board = Board::new(3);
+
+    draw(&board);
 }

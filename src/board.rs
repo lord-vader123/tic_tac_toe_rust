@@ -1,8 +1,8 @@
-enum GameError {
+pub enum GameError {
     InvalidInput,
 }
 
-struct Board {
+pub struct Board {
     fields: Vec<Vec<char>>,
     size: usize,
 }
@@ -50,6 +50,10 @@ impl Board {
 
     pub fn get_size(&self) -> usize {
         return self.size;
+    }
+
+    pub fn get_fields(&self) -> Vec<Vec<char>> {
+        return self.fields.clone();
     }
 
     fn is_win_row(&self) -> Option<char> {
