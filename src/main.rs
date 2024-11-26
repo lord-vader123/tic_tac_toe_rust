@@ -29,11 +29,6 @@ fn main() {
             println!("Invalid input. Please enter two numbers");
         }
 
-        if parts[0] > 2 || parts[0] < 0 || parts[1] > 2 || parts[1] < 0 {
-            println!("Please enter valid number");
-            continue;
-        }
-
         let row: usize = match parts[0].parse() {
             Ok(num) => num,
             Err(_) => {
