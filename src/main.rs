@@ -27,23 +27,36 @@ fn main() {
 
         if parts.len() != 2 {
             println!("Invalid input. Please enter two numbers");
+            continue;
         }
-
-        let row: usize = match parts[0].parse() {
-            Ok(num) => num,
+        let row: usize = match parts[0].parse::<i32>() {
+            Ok(num) if num >= 0 => num as usize,
+            Ok(_) => {
+                println!("Row number cannot be negative.");
+                continue;
+            }
             Err(_) => {
                 println!("Invalid row number.");
                 continue;
             }
         };
 
-        let column: usize = match parts[1].parse() {
-            Ok(num) => num,
+        let column: usize = match parts[1].parse::<i32>() {
+            Ok(num) if num >= 0 => num as usize,
+            Ok(_) => {
+                println!("Column number cannot be negative.");
+                continue;
+            }
             Err(_) => {
-                println!("Invalid column number");
+                println!("Invalid column number.");
                 continue;
             }
         };
+
+        if row > 2 || column > 2 {
+            println!("Invalid numbers. Please choose between 0 and 2");
+            continue;
+        }
 
         match board.set_symbol(row, column, current_symbol) {
             Ok(_) => {

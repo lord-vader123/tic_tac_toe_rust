@@ -48,10 +48,6 @@ impl Board {
         '_'
     }
 
-    pub fn get_size(&self) -> usize {
-        return self.size;
-    }
-
     pub fn get_fields(&self) -> Vec<Vec<char>> {
         return self.fields.clone();
     }
@@ -96,15 +92,6 @@ impl Board {
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    #[test]
-    fn test_board_creation() {
-        let board = Board::new(3);
-        assert_eq!(board.get_size(), 3);
-
-        let board_2 = Board::new(10);
-        assert_eq!(board_2.get_size(), 10);
-    }
 
     #[test]
     fn test_set_symbol_valid() {
